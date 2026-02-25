@@ -5,47 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Comunidad Davar - Red Ministerial</title>
   
-  <!-- Identidad Visual -->
+  <!-- Identidad Visual Sagrada -->
   <link rel="icon" type="image/jpg" href="https://scontent.fsyq4-1.fna.fbcdn.net/v/t39.30808-6/641550060_26884659304454362_7081351474910011629_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=111&ccb=1-7&_nc_sid=13d280&_nc_ohc=2LBns0CevfsQ7kNvwGlaNgn&_nc_oc=AdnqNvceRNeNnJ7J7q5yw0i7Ow-UQZmlazarAScWYjEkBWbR_T2vA4svJ-IEGcvRnSJzVKGqgr75IiSxmhCIcgqe&_nc_zt=23&_nc_ht=scontent.fsyq4-1.fna&_nc_gid=Pxa5MTpWa5LZyLPx7a5hAw&oh=00_AfuuOZe5aSrlizfZJTik_IantMTGcmfCdmixhR_TnwI0-g&oe=69A2BC7D">
   <link rel="apple-touch-icon" href="https://scontent.fsyq4-1.fna.fbcdn.net/v/t39.30808-6/641550060_26884659304454362_7081351474910011629_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=111&ccb=1-7&_nc_sid=13d280&_nc_ohc=2LBns0CevfsQ7kNvwGlaNgn&_nc_oc=AdnqNvceRNeNnJ7J7q5yw0i7Ow-UQZmlazarAScWYjEkBWbR_T2vA4svJ-IEGcvRnSJzVKGqgr75IiSxmhCIcgqe&_nc_zt=23&_nc_ht=scontent.fsyq4-1.fna&_nc_gid=Pxa5MTpWa5LZyLPx7a5hAw&oh=00_AfuuOZe5aSrlizfZJTik_IantMTGcmfCdmixhR_TnwI0-g&oe=69A2BC7D">
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-  <!-- Scripts de Poder -->
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  <!-- Firebase v10 -->
+  <!-- Firebase v10 Compat -->
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
 
   <style>
-    body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: #0f0f0f; margin: 0; color: #e4e6eb; overflow: hidden; height: 100vh; }
-    .card-fb { background: #242526; border-radius: 12px; border: 1px solid #3e4042; box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
-    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-    .custom-scrollbar::-webkit-scrollbar-thumb { background: #4b4d4e; border-radius: 10px; }
-    .nav-active { background-color: rgba(212, 175, 55, 0.15); color: #D4AF37; font-weight: 900; }
-    .no-scrollbar::-webkit-scrollbar { display: none; }
+    :root { --fb-blue: #1877F2; --fb-bg: #F0F2F5; --fb-white: #FFFFFF; --davar-gold: #D4AF37; }
+    body { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; background-color: var(--fb-bg); margin: 0; color: #1C1E21; overflow: hidden; height: 100vh; }
     
-    .full-live-container { position: fixed; inset: 0; background: #000; z-index: 1000; display: flex; flex-direction: column; overflow: hidden; }
-    .live-controls { position: absolute; top: 40px; right: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 1010; }
-    .btn-circle { width: 48px; height: 48px; border-radius: 50%; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; color: white; backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); cursor: pointer; transition: 0.2s; }
-    .btn-circle:active { scale: 0.9; }
+    /* Header Superior Amplio y Azul */
+    .header-fb { background: var(--fb-white); height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border-bottom: 1px solid #e4e6eb; }
+    .nav-container { display: flex; flex: 1; justify-content: center; max-width: 850px; gap: clamp(10px, 4vw, 50px); }
+    
+    .nav-icon { height: 50px; min-width: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--fb-blue); border-bottom: 4px solid transparent; transition: 0.2s; position: relative; opacity: 0.6; }
+    .nav-icon.active { opacity: 1; border-bottom-color: var(--fb-blue); }
+    .nav-icon:hover:not(.active) { background: #F2F2F2; border-radius: 12px; }
+    .nav-icon i { font-size: 26px; }
 
-    video, iframe { width: 100%; border-radius: 8px; background: #000; border: none; }
-    .profile-cover { width: 100%; height: 160px; background: linear-gradient(45deg, #1c1c1d, #3a3b3c); border-radius: 12px 12px 0 0; object-fit: cover; }
-    .profile-avatar-pos { margin-top: -50px; position: relative; display: inline-block; }
+    .card-social { background: var(--fb-white); border-radius: 12px; border: 1px solid #dddfe2; box-shadow: 0 1px 2px rgba(0,0,0,0.1); margin-bottom: 12px; overflow: hidden; }
+    .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #bcc0c4; border-radius: 10px; }
+    
+    .post-opt-pill { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; border-radius: 8px; cursor: pointer; transition: 0.2s; font-size: 13px; font-weight: 600; color: #65676B; }
+    .post-opt-pill:hover { background: #F2F2F2; }
+
+    .live-overlay { position: fixed; inset: 0; background: #000; z-index: 5000; display: flex; flex-direction: column; }
+    .btn-circle-action { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; color: white; cursor: pointer; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3); }
+
+    video, iframe { width: 100%; border-radius: 12px; background: #000; border: none; }
+    .banner-img { width: 100%; height: 220px; background: #ccd0d5; object-fit: cover; border-radius: 0 0 15px 15px; }
+    .avatar-lg { margin-top: -70px; position: relative; display: inline-block; border: 4px solid white; border-radius: 50%; background: white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
     
     .animate-up { animation: slideUp 0.3s ease-out forwards; }
-    @keyframes slideUp { from { transform: translateY(15px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+    .emoji-selector-panel { display: grid; grid-template-cols: repeat(5, 1fr); gap: 10px; padding: 15px; background: white; border: 1px solid #ddd; border-radius: 12px; position: absolute; z-index: 100; bottom: 65px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); width: 280px; }
     
-    .reac-bar { display: flex; gap: 8px; padding: 4px 12px; background: #3a3b3c; border-radius: 20px; width: fit-content; }
-    .reac-btn { font-size: 13px; display: flex; align-items: center; gap: 5px; font-weight: bold; color: #b0b3b8; cursor: pointer; transition: 0.2s; }
-    .reac-btn.active { color: #D4AF37; scale: 1.1; }
+    .reac-bar { display: flex; border-top: 1px solid #f0f2f5; padding: 4px; gap: 2px; }
+    .reac-btn { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600; color: #65676B; transition: 0.1s; }
+    .reac-btn:hover { background: #f2f2f2; }
+    .reac-btn.active { color: var(--fb-blue); font-weight: 800; }
+
+    .input-pill { background: #F0F2F5; border-radius: 20px; padding: 12px 18px; border: 1px solid transparent; outline: none; width: 100%; font-size: 15px; transition: 0.2s; }
+    .input-pill:focus { background: #fff; border-color: var(--fb-blue); }
   </style>
 </head>
 <body>
@@ -54,11 +68,7 @@
   <script type="text/babel">
     const { useState, useEffect, useRef } = React;
 
-    // --- CONFIGURACIÓN ---
-    const LOGO_URL = "https://scontent.fsyq4-1.fna.fbcdn.net/v/t39.30808-6/641550060_26884659304454362_7081351474910011629_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=111&ccb=1-7&_nc_sid=13d280&_nc_ohc=2LBns0CevfsQ7kNvwGlaNgn&_nc_oc=AdnqNvceRNeNnJ7J7q5yw0i7Ow-UQZmlazarAScWYjEkBWbR_T2vA4svJ-IEGcvRnSJzVKGqgr75IiSxmhCIcgqe&_nc_zt=23&_nc_ht=scontent.fsyq4-1.fna&_nc_gid=Pxa5MTpWa5LZyLPx7a5hAw&oh=00_AfuuOZe5aSrlizfZJTik_IantMTGcmfCdmixhR_TnwI0-g&oe=69A2BC7D";
-    const DEFAULT_COVER = "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&q=80&w=1000";
-    const apiKey = ""; 
-
+    // --- CONFIG FIREBASE ---
     const firebaseConfig = {
       apiKey: "AIzaSyDquU86YIWcujUgTLwoJPZcrxRBjNGLkz4", 
       authDomain: "project-a972c4a3-b179-439a-9a5.firebaseapp.com",
@@ -70,307 +80,422 @@
     if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
     const db = firebase.firestore();
-    const rootId = "comunidad-davar-v300-multi-device";
+    const rootId = "comunidad-davar-v2026-reforma-final-ordenada";
+    const LOGO_URL = "https://scontent.fsyq4-1.fna.fbcdn.net/v/t39.30808-6/641550060_26884659304454362_7081351474910011629_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=111&ccb=1-7&_nc_sid=13d280&_nc_ohc=2LBns0CevfsQ7kNvwGlaNgn&_nc_oc=AdnqNvceRNeNnJ7J7q5yw0i7Ow-UQZmlazarAScWYjEkBWbR_T2vA4svJ-IEGcvRnSJzVKGqgr75IiSxmhCIcgqe&_nc_zt=23&_nc_ht=scontent.fsyq4-1.fna&_nc_gid=Pxa5MTpWa5LZyLPx7a5hAw&oh=00_AfuuOZe5aSrlizfZJTik_IantMTGcmfCdmixhR_TnwI0-g&oe=69A2BC7D";
+    const DEFAULT_COVER = "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1000";
+    const apiKeyGemini = ""; 
 
-    // --- UTILIDADES ---
-    const compress = (file) => new Promise((res) => {
-      const r = new FileReader(); r.readAsDataURL(file); r.onload = (e) => res(e.target.result);
+    // --- UTILS ---
+    const optimizeMedia = (file) => new Promise((res) => {
+      const reader = new FileReader(); reader.readAsDataURL(file); reader.onload = (e) => res(e.target.result);
     });
 
-    // --- COMPONENTES ---
+    // --- COMPONENTES DECLARADOS ANTES DE APP ---
 
-    const UrlPlayer = ({ url }) => {
-      const getID = (u) => {
-        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-        const match = u.match(regExp); return (match && match[2].length === 11) ? match[2] : null;
-      };
-      const id = getID(url);
-      if (id) return <div className="rounded-lg overflow-hidden border border-white/10 mb-2"><iframe className="aspect-video w-full" src={`https://www.youtube.com/embed/${id}`} allowFullScreen /></div>;
-      return <a href={url} target="_blank" className="p-3 bg-blue-500/10 rounded-lg block text-blue-400 font-bold truncate text-[11px] mb-2"><i className="fa-solid fa-link mr-2"></i> Abrir contenido ministerial</a>;
+    const MediaDisplay = ({ url }) => {
+      if (!url) return null;
+      // Imagen Directa
+      if (url.match(/\.(jpeg|jpg|gif|png|webp)$/) != null || url.includes('images.unsplash.com') || url.startsWith('data:image')) {
+        return <div className="mt-3 animate-up"><img src={url} className="w-full rounded-xl border shadow-sm" alt="Imagen ministerial" /></div>;
+      }
+      // Spotify
+      if (url.includes('spotify.com')) {
+        const embedUrl = url.replace('open.spotify.com/', 'open.spotify.com/embed/');
+        return <div className="mt-3 shadow-md rounded-xl overflow-hidden"><iframe src={embedUrl} width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe></div>;
+      }
+      // YouTube
+      const match = url.match(/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/);
+      const ytId = (match && match[2].length === 11) ? match[2] : null;
+      if (ytId) return <div className="mt-3 overflow-hidden rounded-xl shadow-lg"><iframe className="aspect-video w-full" src={`https://www.youtube.com/embed/${ytId}`} allowFullScreen /></div>;
+      
+      return <a href={url} target="_blank" rel="noopener noreferrer" className="p-4 bg-blue-50 rounded-xl block text-blue-600 font-bold truncate text-[14px] mt-3 hover:bg-blue-100 transition-all border border-blue-100 shadow-sm font-bold"><i className="fa-solid fa-link mr-2"></i> Abrir enlace ministerial</a>;
     };
 
-    const ChatGlobal = ({ profile }) => {
+    const ChatPanel = ({ profile }) => {
       const [msgs, setMsgs] = useState([]); const [txt, setTxt] = useState('');
       const col = db.collection('artifacts').doc(rootId).collection('public').doc('data').collection('chat');
       const endRef = useRef(null);
-      useEffect(() => { const unsub = col.orderBy('at','asc').limitToLast(50).onSnapshot(s => setMsgs(s.docs.map(d=>d.data()))); return ()=>unsub(); }, []);
-      useEffect(() => { endRef.current?.scrollIntoView(); }, [msgs]);
+      useEffect(() => { const unsub = col.orderBy('at','asc').limitToLast(40).onSnapshot(s => setMsgs(s.docs.map(d=>d.data()))); return ()=>unsub(); }, []);
+      useEffect(() => { endRef.current?.scrollIntoView({behavior:'smooth'}); }, [msgs]);
       const send = () => { if(!txt.trim()) return; col.add({uid:profile.uid, name:profile.name, text:txt.trim(), photo:profile.photo, at:Date.now()}); setTxt(''); };
       return (
-        <div className="h-full flex flex-col card-fb overflow-hidden animate-up">
-          <div className="p-3 border-b border-white/5 bg-black/20 text-center font-black text-[#D4AF37] uppercase text-[10px] tracking-widest">Chat Ministerial</div>
-          <div className="flex-1 overflow-y-auto p-4 space-y-3 custom-scrollbar bg-black/5">
-            {msgs.map((m,i)=>(
-              <div key={i} className={`flex gap-2 ${m.uid===profile.uid?'flex-row-reverse':''}`}>
-                <img src={m.photo||LOGO_URL} className="h-7 w-7 rounded-full object-cover border border-[#D4AF37]/30" />
-                <div className={`p-2.5 rounded-2xl text-[12px] max-w-[80%] ${m.uid===profile.uid?'bg-[#D4AF37] text-black font-bold':'bg-[#3a3b3c] text-white'}`}>{m.text}</div>
-              </div>
-            ))}
+        <div className="h-full flex flex-col card-social overflow-hidden animate-up bg-white border-t-4 border-blue-600 shadow-2xl">
+          <div className="p-4 border-b text-center font-bold text-gray-500 text-[11px] uppercase tracking-widest bg-white italic">Conversación Ministerial</div>
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#f0f2f5] custom-scrollbar">
+            {msgs.map((m,i)=>(<div key={i} className={`flex gap-3 ${m.uid===profile.uid?'flex-row-reverse':''}`}><img src={m.photo||LOGO_URL} className="h-9 w-9 rounded-full object-cover border-2 border-white shadow-sm" /><div className={`p-3.5 rounded-2xl text-[14px] max-w-[80%] shadow-sm ${m.uid===profile.uid?'bg-[#0084ff] text-white shadow-md font-medium':'bg-white text-gray-800'}`}>{m.text}</div></div>))}
             <div ref={endRef} />
           </div>
-          <div className="p-3 bg-black/20 flex gap-2 border-t border-white/5">
-            <input type="text" value={txt} onChange={e=>setTxt(e.target.value)} placeholder="Mensaje..." className="flex-1 bg-white/5 text-white rounded-full px-5 text-xs outline-none" onKeyDown={e=>e.key==='Enter'&&send()} />
-            <button onClick={send} className="w-10 h-10 rounded-full bg-[#D4AF37] text-black flex items-center justify-center active:scale-90"><i className="fa-solid fa-paper-plane text-sm"></i></button>
-          </div>
+          <div className="p-3 bg-white flex gap-2 border-t"><input type="text" value={txt} onChange={e=>setTxt(e.target.value)} placeholder="Mensaje ministerial..." className="flex-1 input-pill bg-[#f0f2f5]" onKeyDown={e=>e.key==='Enter'&&send()} /><button onClick={send} className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center active:scale-90 transition-all shadow-lg"><i className="fa-solid fa-paper-plane text-xl"></i></button></div>
         </div>
       );
     };
 
     const WisdomPanel = () => {
-      const [chat, setChat] = useState([]); const [val, setVal] = useState(''); const [load, setLoad] = useState(false);
+      const [messages, setMessages] = useState([]); const [val, setVal] = useState(''); const [loading, setLoading] = useState(false);
       const end = useRef(null);
       const ask = async () => {
-        if(!val.trim() || load) return; const q = val; setVal(''); setChat(p => [...p, {role:'u', text:q}]); setLoad(true);
+        if(!val.trim() || loading) return; const q = val; setVal(''); setMessages(p => [...p, {role:'u', text:q}]); setLoading(true);
         try {
-          const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
-            method:'POST', body: JSON.stringify({ contents:[{parts:[{text:q}]}], systemInstruction:{parts:[{text:"Eres el Sabio de Davar. Responde con visión espiritual y gracia."}]} })
+          const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKeyGemini}`, {
+            method:'POST', body: JSON.stringify({ contents:[{parts:[{text:q}]}], systemInstruction:{parts:[{text:"Eres el Sabio Davar. Responde con sabiduría ministerial y brevedad."}]} })
           });
-          const d = await r.json(); setChat(p => [...p, {role:'ai', text: d.candidates?.[0]?.content?.parts?.[0]?.text || "El Creador nos invita a la calma."}]);
-        } catch(e) { setChat(p => [...p, {role:'ai', text:"Conexión débil, intente luego."}]); }
-        setLoad(false);
+          const d = await r.json(); setMessages(p => [...p, {role:'ai', text: d.candidates?.[0]?.content?.parts?.[0]?.text || "La Jerarquía Mayor nos invita a la reflexión."}]);
+        } catch(e) { setMessages(p => [...p, {role:'ai', text:"Conexión ministerial débil."}]); }
+        setLoading(false);
       };
-      useEffect(() => { end.current?.scrollIntoView({behavior:'smooth'}); }, [chat]);
+      useEffect(() => { end.current?.scrollIntoView({behavior:'smooth'}); }, [messages]);
       return (
-        <div className="h-[70vh] flex flex-col card-fb overflow-hidden animate-up border border-[#D4AF37]/20">
-          <div className="p-4 bg-[#D4AF37] text-black font-black uppercase text-[10px] text-center">Sabiduría Davar</div>
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-black/10 custom-scrollbar">
-            {chat.map((m,i)=>(<div key={i} className={`flex ${m.role==='ai'?'justify-start':'justify-end'}`}><div className={`p-3 rounded-xl text-[13px] max-w-[85%] ${m.role==='ai'?'bg-[#1c1c1d] border border-[#D4AF37]/30 text-white':'bg-[#D4AF37] text-black font-bold'}`}>{m.text}</div></div>))}
-            {load && <div className="text-[#D4AF37] text-[10px] font-black animate-pulse">CONSULTANDO...</div>}
+        <div className="h-[75vh] flex flex-col card-social overflow-hidden border-t-4 border-blue-500 animate-up bg-white shadow-2xl">
+          <div className="p-4 text-center font-bold uppercase text-gray-500 text-[11px] bg-white border-b tracking-widest italic">Sabiduría Davar (AI)</div>
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#f0f2f5] custom-scrollbar">
+            {messages.map((m,i)=>(<div key={i} className={`flex ${m.role==='ai'?'justify-start':'justify-end'}`}><div className={`p-4 rounded-2xl text-[14px] max-w-[85%] shadow-sm ${m.role==='ai'?'bg-white border text-gray-800 shadow-md':'bg-[#1877f2] text-white'}`}>{m.text}</div></div>))}
+            {loading && <div className="text-blue-500 text-[10px] font-black animate-pulse text-center mt-3 uppercase">Consultando...</div>}
             <div ref={end} />
           </div>
-          <div className="p-3 flex gap-2 bg-black/40"><input type="text" value={val} onChange={e=>setVal(e.target.value)} placeholder="Duda espiritual..." className="flex-1 bg-white/5 text-white rounded-full px-5 text-xs outline-none" onKeyDown={e=>e.key==='Enter'&&ask()} /><button onClick={ask} className="w-10 h-10 rounded-full bg-[#D4AF37] text-black flex items-center justify-center"><i className="fa-solid fa-sparkles"></i></button></div>
+          <div className="p-4 flex gap-3 bg-white border-t"><input type="text" value={val} onChange={e=>setVal(e.target.value)} placeholder="¿Duda espiritual?" className="flex-1 input-pill bg-[#f0f2f5]" onKeyDown={e=>e.key==='Enter'&&ask()} /><button onClick={ask} className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center active:scale-90 transition-all shadow-lg"><i className="fa-solid fa-sparkles text-xl"></i></button></div>
         </div>
       );
     };
 
-    const LiveWindow = ({ profile, bId, isB, onClose, onPub }) => {
+    const LiveOverlay = ({ profile, bId, isB, onClose, onPub }) => {
       const vR = useRef(null); const sR = useRef(null); const mR = useRef(null); const chunks = useRef([]);
-      const [live, setLive] = useState(false);
+      const [live, setLive] = useState(false); const [paused, setPaused] = useState(false);
+      const [chat, setChat] = useState([]); const [msg, setMsg] = useState('');
+      const chatCol = db.collection('artifacts').doc(rootId).collection('public').doc('data').collection('live_chat').doc(bId).collection('messages');
+
+      useEffect(() => {
+        if(isB) (async()=>{ try{ const s = await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'}, audio:true}); sR.current=s; if(vR.current) vR.current.srcObject=s; }catch(e){alert("Se requiere cámara."); onClose();}})();
+        const unsub = chatCol.orderBy('at','asc').onSnapshot(s => setChat(s.docs.map(d=>d.data())));
+        return ()=> { if(sR.current) sR.current.getTracks().forEach(t=>t.stop()); unsub(); };
+      }, []);
+
       const start = async () => {
-        try {
-          const s = await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'}, audio:true});
-          sR.current = s; if(vR.current) vR.current.srcObject = s;
-        } catch(e) { alert("Permita cámara."); }
-      };
-      useEffect(() => { if(isB) start(); return () => sR.current?.getTracks().forEach(t=>t.stop()); }, []);
-      const goLive = async () => {
         setLive(true); mR.current = new MediaRecorder(sR.current, {videoBitsPerSecond:100000}); chunks.current = [];
         mR.current.ondataavailable = e => chunks.current.push(e.data);
-        mR.current.onstop = () => {
-          const b = new Blob(chunks.current, {type:'video/webm'}); const r = new FileReader(); r.readAsDataURL(b);
-          r.onloadend = () => { onPub(r.result); onClose(); };
-        };
+        mR.current.onstop = () => { const b=new Blob(chunks.current,{type:'video/webm'}); const r=new FileReader(); r.readAsDataURL(b); r.onloadend=()=>{ onPub(r.result); onClose(); }; };
         mR.current.start();
         await db.collection('artifacts').doc(rootId).collection('public').doc('data').collection('lives').doc(bId).set({uid:bId, name:profile.name, photo:profile.photo, at:Date.now()});
       };
-      const stop = async () => {
-        if(isB && mR.current?.state === 'recording') mR.current.stop();
-        await db.collection('artifacts').doc(rootId).collection('public').doc('data').collection('lives').doc(bId).delete();
-        if(!isB) onClose();
-      };
+
+      const stop = async () => { if(isB && mR.current?.state !== 'inactive') mR.current.stop(); await db.collection('artifacts').doc(rootId).collection('public').doc('data').collection('lives').doc(bId).delete(); if(!isB) onClose(); };
+      const pause = () => { if(mR.current?.state === 'recording') { mR.current.pause(); setPaused(true); } else if(mR.current?.state === 'paused') { mR.current.resume(); setPaused(false); } };
+
       return (
-        <div className="full-live-container animate-up">
+        <div className="live-overlay animate-in">
           <div className="flex-1 bg-black relative flex items-center justify-center">
             {isB ? <video ref={vR} muted playsInline autoPlay className="w-full h-full object-cover" /> : <iframe src={`https://meet.jit.si/Davar_${bId}`} className="w-full h-full" />}
-            <div className="absolute top-10 left-5 bg-black/40 p-2 pr-4 rounded-full flex items-center gap-3 border border-white/10"><img src={profile.photo} className="h-8 w-8 rounded-full border-2 border-[#D4AF37]" /><p className="text-white font-black text-[10px] uppercase">¡EN VIVO!</p></div>
-            <div className="live-controls">
-              <button onClick={onClose} className="btn-circle"><i className="fa-solid fa-xmark"></i></button>
-              {isB && !live && <button onClick={goLive} className="btn-circle bg-red-600 animate-pulse"><i className="fa-solid fa-play"></i></button>}
-              {(live || !isB) && <button onClick={stop} className="btn-circle bg-white text-red-600"><i className="fa-solid fa-stop"></i></button>}
+            <div className="absolute top-10 left-5 flex items-center gap-3 bg-black/40 p-2 pr-5 rounded-full border border-white/20 shadow-xl"><img src={profile.photo} className="h-10 w-10 rounded-full border border-white" /><p className="text-white font-black text-[10px] tracking-widest uppercase">● EN VIVO</p></div>
+            
+            <div className="absolute bottom-24 left-5 max-h-[30vh] overflow-y-auto no-scrollbar w-[280px] space-y-2 pointer-events-none">
+              {chat.map((c,i)=>(<div key={i} className="bg-black/30 p-2 rounded-xl text-white text-[12px] backdrop-blur-md border border-white/5 shadow-sm"><span className="font-bold text-blue-400 uppercase">{c.name}:</span> {c.text}</div>))}
+            </div>
+
+            <div className="absolute top-8 right-5 flex flex-col gap-6">
+              <div onClick={onClose} className="btn-circle-action bg-gray-800 shadow-xl"><i className="fa-solid fa-xmark"></i></div>
+              {isB && !live && <div onClick={start} className="btn-circle-action bg-red-600 animate-pulse shadow-xl"><i className="fa-solid fa-play"></i></div>}
+              {isB && live && (
+                <>
+                  <div onClick={pause} className={`btn-circle-action ${paused?'bg-yellow-500':'bg-blue-600'}`}><i className={`fa-solid ${paused?'fa-play':'fa-pause'}`}></i></div>
+                  <div onClick={stop} className="btn-circle-action bg-white text-red-600 shadow-2xl"><i className="fa-solid fa-stop"></i></div>
+                  <div onClick={()=>{navigator.share({title:'Prédica en vivo - Comunidad Davar', url:window.location.href}).catch(()=>{})}} className="btn-circle-action bg-blue-500 text-white"><i className="fa-solid fa-share-nodes"></i></div>
+                </>
+              )}
+              {!isB && <div onClick={onClose} className="btn-circle-action bg-white text-red-600 shadow-2xl"><i className="fa-solid fa-stop"></i></div>}
             </div>
           </div>
+          <div className="p-4 bg-black border-t border-white/10 flex gap-3"><input type="text" value={msg} onChange={e=>setMsg(e.target.value)} placeholder="Amén..." className="flex-1 bg-white/10 text-white rounded-full px-6 outline-none border border-white/10" onKeyDown={e=>e.key==='Enter'&&msg.trim()&&(chatCol.add({name:profile.name,text:msg.trim(),at:Date.now()}),setMsg(''))} /><button onClick={()=>{if(!msg.trim())return; chatCol.add({name:profile.name,text:msg.trim(),at:Date.now()});setMsg('');}} className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center active:scale-90 shadow-lg"><i className="fa-solid fa-paper-plane"></i></button></div>
         </div>
       );
     };
 
-    const Wall = ({ user, profile, onStartLive, onJoinLive }) => {
+    function WallView({ user, profile, onStartLive, onJoinLive }) {
       const [posts, setPosts] = useState([]); const [activeLives, setLives] = useState([]);
-      const [txt, setTxt] = useState(''); const [img, setImg] = useState(''); const [vid, setVid] = useState(''); const [aud, setAud] = useState(''); const [link, setLink] = useState('');
-      const [load, setLoad] = useState(false); const [commIn, setCommIn] = useState({});
+      const [txt, setTxt] = useState(''); const [img, setImg] = useState(''); const [aud, setAud] = useState(''); const [link, setLink] = useState('');
+      const [loc, setLoc] = useState(''); const [tag, setTag] = useState(''); const [feeling, setFeeling] = useState('');
+      const [loading, setLoading] = useState(false); const [commIn, setCommIn] = useState({});
+      const [isRecording, setIsRecording] = useState(false); const recorderRef = useRef(null);
+      const [showEmoji, setShowEmoji] = useState(false);
       const colP = db.collection('artifacts').doc(rootId).collection('public').doc('data').collection('posts');
       const colL = db.collection('artifacts').doc(rootId).collection('public').doc('data').collection('lives');
-
+      
       useEffect(() => {
-        const u1 = colP.orderBy('at', 'desc').onSnapshot(s => setPosts(s.docs.map(d=>({id:d.id, ...d.data()}))));
+        const u1 = colP.orderBy('at','desc').onSnapshot(s => setPosts(s.docs.map(d=>({id:d.id, ...d.data()}))));
         const u2 = colL.onSnapshot(s => setLives(s.docs.map(d=>({id:d.id, ...d.data()}))));
         return () => { u1(); u2(); };
       }, []);
 
-      const publish = async () => {
-        if(load) return; if(!txt.trim() && !img && !vid && !aud && !link.trim()) return;
-        setLoad(true);
+      const sendPost = async () => {
+        if(loading || (!txt.trim() && !img && !aud && !link.trim() && !loc && !tag)) return;
+        setLoading(true);
+        try { 
+          await colP.add({ uid:user.uid, author:profile.name, photo:profile.photo, text:txt, img, video:'', audio:aud, link, location:loc, tag, feeling, at:Date.now(), reactions:{}, comments:[] }); 
+          setTxt(''); setImg(''); setAud(''); setLink(''); setLoc(''); setTag(''); setFeeling('');
+          document.getElementById('post-dialog').classList.add('hidden');
+        } catch(e) { alert("Error ministerial al publicar."); }
+        setLoading(false);
+      };
+
+      const handleAudio = async () => {
+        if (isRecording) { recorderRef.current?.stop(); return; }
         try {
-          await colP.add({ uid:user.uid, author:profile.name, photo:profile.photo, text:txt, img, video:vid, audio:aud, link, at:Date.now(), reactions:{}, comments:[] });
-          setTxt(''); setImg(''); setVid(''); setAud(''); setLink('');
-        } catch(e) {}
-        setLoad(false);
+          const s = await navigator.mediaDevices.getUserMedia({ audio: true });
+          const mr = new MediaRecorder(s); const ch = []; recorderRef.current = mr; setIsRecording(true);
+          mr.ondataavailable = e => ch.push(e.data);
+          mr.onstop = () => { 
+            const b = new Blob(ch, {type:'audio/mp3'}); const r = new FileReader(); r.readAsDataURL(b); 
+            r.onloadend = () => { setAud(r.result); setIsRecording(false); };
+            s.getTracks().forEach(t=>t.stop());
+          };
+          mr.start();
+        } catch(e) { setIsRecording(false); }
       };
 
-      const react = async (pId, type) => {
-        const p = posts.find(x=>x.id===pId); if(!p) return; const rs = {...(p.reactions||{})};
-        if(rs[user.uid]===type) delete rs[user.uid]; else rs[user.uid]=type;
-        await colP.doc(pId).update({ reactions:rs });
-      };
-
-      const comment = async (pId) => {
-        const ctxt = commIn[pId]; if(!ctxt?.trim()) return;
-        await colP.doc(pId).update({ comments: firebase.firestore.FieldValue.arrayUnion({ name:profile.name, photo:profile.photo, text:ctxt, at:Date.now() }) });
-        setCommIn(p => ({...p, [pId]:''}));
-      };
+      const getGPS = () => { navigator.geolocation.getCurrentPosition(p => setLoc(`${p.coords.latitude.toFixed(2)}, ${p.coords.longitude.toFixed(2)}`), ()=>alert("Active GPS ministerial")); };
 
       return (
-        <div className="space-y-4 pb-20 animate-up text-left">
+        <div className="space-y-4 pb-24 animate-in text-left max-w-[620px] mx-auto px-1 md:px-0">
           {activeLives.map(l => (
-            <div key={l.id} className="bg-red-600 p-3 rounded-xl flex items-center justify-between animate-pulse shadow-lg"><div className="flex items-center gap-3"><img src={l.photo} className="h-8 w-8 rounded-full border border-white" /><p className="font-black text-[10px] text-white uppercase tracking-tighter">{l.name} EN VIVO</p></div><button onClick={()=>onJoinLive(l.id)} className="bg-white text-red-600 px-5 py-1.5 rounded-full font-black text-[10px]">UNIRSE</button></div>
+            <div key={l.id} className="bg-red-500 p-4 rounded-xl flex items-center justify-between text-white shadow-lg animate-pulse">
+              <div className="flex items-center gap-3"><img src={l.photo} className="h-11 w-11 rounded-full border-2 border-white object-cover shadow-sm" /><p className="font-bold text-[14px] uppercase tracking-widest">● EN VIVO: {l.name}</p></div>
+              <button onClick={()=>onJoinLive(l.uid)} className="bg-white text-red-500 px-6 py-2 rounded-full font-black text-[12px] shadow-sm active:scale-95 transition-all">UNIRSE</button>
+            </div>
           ))}
-          <div className="card-fb p-4 border-t-2 border-[#D4AF37]/30 shadow-xl">
-            <div className="flex gap-3 mb-4"><img src={profile.photo} className="h-10 w-10 rounded-full border-2 border-[#D4AF37] object-cover" /><textarea placeholder={`¿Qué inspiración hoy?`} value={txt} onChange={e=>setTxt(e.target.value)} className="w-full bg-[#1a1a1b] rounded-xl p-3 text-sm outline-none h-16 resize-none" /></div>
-            <div className="flex flex-wrap gap-2 items-center border-t border-white/5 pt-3">
-              <button onClick={onStartLive} className="text-red-500 p-2"><i className="fa-solid fa-clapperboard"></i></button>
-              <label className="text-green-500 p-2 cursor-pointer"><i className="fa-solid fa-image"></i><input type="file" className="hidden" accept="image/*" onChange={async e=>setImg(await compress(e.target.files[0]))} /></label>
-              <label className="text-blue-400 p-2 cursor-pointer"><i className="fa-solid fa-video"></i><input type="file" className="hidden" accept="video/*" onChange={async e=>setVid(await compress(e.target.files[0]))} /></label>
-              <button onClick={()=>{const u=prompt("Enlace:"); if(u) setLink(u)}} className="text-orange-400 p-2"><i className="fa-solid fa-paperclip"></i></button>
-              <button onClick={publish} disabled={load} className="ml-auto bg-[#D4AF37] text-black px-6 py-1.5 rounded-lg font-black text-[10px] uppercase shadow-md active:scale-95 transition-all">{load?'...':'Publicar'}</button>
+          <div className="card-social p-5 shadow-sm border border-gray-200">
+            <div className="flex gap-4 mb-4">
+              <img src={profile.photo} className="h-12 w-12 rounded-full object-cover border-2 border-gray-100 shadow-sm" />
+              <div onClick={()=>document.getElementById('post-dialog').classList.remove('hidden')} className="w-full bg-[#f0f2f5] rounded-full p-2.5 px-6 text-gray-500 text-[16px] cursor-pointer hover:bg-[#e4e6e9] transition-all shadow-inner italic">¿Qué tienes en mente hoy, {profile.name.split(' ')[0]}?</div>
+            </div>
+            <div className="flex gap-2 border-t pt-3">
+              <div onClick={onStartLive} className="post-opt-pill"><i className="fa-solid fa-video text-red-500 text-xl"></i><span>Vivo</span></div>
+              <label className="post-opt-pill"><i className="fa-solid fa-image text-green-500 text-xl"></i><span>Foto</span><input type="file" className="hidden" accept="image/*" onChange={async e=>{setImg(await optimizeMedia(e.target.files[0])); document.getElementById('post-dialog').classList.remove('hidden');}} /></label>
+              <div onClick={handleAudio} className={`post-opt-pill ${isRecording?'text-red-600 animate-pulse':'text-orange-500'}`}><i className="fa-solid fa-microphone text-xl"></i><span>Voz</span></div>
             </div>
           </div>
+          
+          <div id="post-dialog" className="hidden card-social p-6 border-2 border-blue-100 animate-in shadow-2xl relative bg-white">
+             <div className="flex justify-between items-center mb-5 border-b pb-3"><h3 className="font-bold text-gray-800 text-lg uppercase tracking-tighter">Crear publicación ministerial</h3><i onClick={()=>document.getElementById('post-dialog').classList.add('hidden')} className="fa-solid fa-xmark cursor-pointer p-2 bg-gray-100 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-200 transition-all"></i></div>
+             
+             <textarea value={txt} onChange={e=>setTxt(e.target.value)} placeholder={`¿Qué inspiración tienes hoy?`} className="w-full h-40 outline-none text-xl resize-none placeholder-gray-400 font-medium" />
+             
+             {(img || aud || loc || tag || feeling || link) && <div className="mt-4 p-4 bg-gray-50 rounded-2xl border border-dashed flex flex-wrap gap-4 shadow-inner">
+                {img && <div className="relative"><img src={img} className="h-28 w-28 object-cover rounded-xl shadow-md" /><i onClick={()=>setImg('')} className="fa-solid fa-circle-xmark absolute -top-3 -right-3 text-black cursor-pointer bg-white rounded-full text-2xl shadow-xl"></i></div>}
+                {aud && <div className="w-full flex items-center gap-2 bg-white p-2 rounded-xl border shadow-sm"><audio src={aud} controls className="h-8 flex-1" /><i onClick={()=>setAud('')} className="fa-solid fa-trash text-red-500 cursor-pointer p-2"></i></div>}
+                {loc && <div className="bg-red-50 text-red-600 px-4 py-1.5 rounded-full text-xs font-bold flex items-center gap-2 shadow-sm border border-red-100 italic"><i className="fa-solid fa-location-dot"></i> {loc} <i onClick={()=>setLoc('')} className="fa-solid fa-xmark cursor-pointer"></i></div>}
+                {tag && <div className="bg-blue-50 text-blue-600 px-4 py-1.5 rounded-full text-xs font-bold flex items-center gap-2 shadow-sm border border-blue-100 italic"><i className="fa-solid fa-user-tag"></i> {tag} <i onClick={()=>setTag('')} className="fa-solid fa-xmark cursor-pointer"></i></div>}
+                {feeling && <div className="bg-yellow-50 text-yellow-800 px-4 py-1.5 rounded-full text-xs font-bold italic shadow-sm border border-yellow-100 uppercase tracking-widest">Me siento {feeling} <i onClick={()=>setFeeling('')} className="fa-solid fa-xmark cursor-pointer"></i></div>}
+                {link && <div className="w-full border p-3 rounded-xl bg-blue-50 text-[12px] truncate text-blue-800 font-bold border-blue-200">Enlace ministerial: {link} <i onClick={()=>setLink('')} className="fa-solid fa-xmark cursor-pointer ml-3 text-red-500"></i></div>}
+             </div>}
+
+             {showEmoji && <div className="emoji-picker-panel shadow-2xl border-2 border-blue-50 animate-up">{['🙏','🙌','🔥','🌟','📖','🕊️','❤️','✝️','⛪','💎','🌈','🌍','📜','✨','🎺'].map(e=>(<span key={e} onClick={()=>{setTxt(p=>p+e); setShowEmoji(false);}} className="text-3xl cursor-pointer hover:scale-150 transition-all text-center p-1">{e}</span>))}</div>}
+
+             <div className="border rounded-2xl p-5 my-6 flex items-center justify-between shadow-sm bg-white border-gray-200">
+                <span className="text-sm font-bold text-gray-500 uppercase tracking-widest italic">Añadir a la bendición</span>
+                <div className="flex gap-7 text-2xl">
+                   <i onClick={()=>setShowEmoji(!showEmoji)} className="fa-regular fa-face-smile text-yellow-500 cursor-pointer hover:scale-125 active:scale-90" title="Sentimiento"></i>
+                   <i onClick={()=>{const u=prompt("YouTube/Spotify o URL de imagen web:"); if(u) setLink(u)}} className="fa-solid fa-link text-blue-500 cursor-pointer hover:scale-125 active:scale-90" title="Enlace"></i>
+                   <i onClick={getGPS} className="fa-solid fa-location-dot text-red-500 cursor-pointer hover:scale-125 active:scale-90" title="Ubicación GPS"></i>
+                   <i onClick={()=>{const h=prompt("Nombre del hermano:"); if(h) setTag(h)}} className="fa-solid fa-user-tag text-green-500 cursor-pointer hover:scale-125 active:scale-90" title="Etiquetar"></i>
+                   <i onClick={()=>{const s=prompt("¿Cómo te sientes?"); if(s) setFeeling(s)}} className="fa-solid fa-icons text-purple-500 cursor-pointer hover:scale-125 active:scale-90" title="Sentimientos"></i>
+                </div>
+             </div>
+             <button onClick={sendPost} disabled={loading} className="w-full bg-[#1877f2] text-white font-black py-4.5 rounded-2xl shadow-xl active:scale-95 transition-all text-[15px] uppercase tracking-widest h-14">{loading?'Subiendo a la red...':'Publicar Bendición'}</button>
+          </div>
+
           {posts.map(p => (
-            <div key={p.id} className="card-fb overflow-hidden mb-4 shadow-lg animate-up border border-white/5">
-              <div className="p-4 flex gap-3"><img src={p.photo} className="h-9 w-9 rounded-full border border-[#D4AF37]/30" /><div><p className="font-bold text-[13px]">{p.author}</p><p className="text-[9px] text-gray-500 uppercase">{new Date(p.at).toLocaleString()}</p></div></div>
-              {p.text && <p className="px-5 pb-3 text-[14px] leading-relaxed">{p.text}</p>}
-              {p.img && <img src={p.img} className="w-full border-y border-white/5" />}
-              {p.video && <video src={p.video} controls className="w-full" />}
-              {p.audio && <div className="px-4 pb-4"><audio src={p.audio} controls className="w-full" /></div>}
-              {p.link && <div className="px-4 pb-2"><UrlPlayer url={p.link} /></div>}
-              <div className="p-3 border-t border-white/5 bg-black/5">
-                <div className="reac-bar mb-3">
-                  <button onClick={()=>react(p.id,'amen')} className={`reac-btn ${p.reactions?.[user.uid]==='amen'?'active':''}`}>🙏 Amén <span className="text-[10px] opacity-60 ml-1">{Object.values(p.reactions||{}).filter(r=>r==='amen').length||''}</span></button>
-                  <button onClick={()=>react(p.id,'bendice')} className={`reac-btn ${p.reactions?.[user.uid]==='bendice'?'active':''}`}>🌟 Bendice <span className="text-[10px] opacity-60 ml-1">{Object.values(p.reactions||{}).filter(r=>r==='bendice').length||''}</span></button>
+            <div key={p.id} className="card-social animate-up border border-gray-100 shadow-sm bg-white">
+              <div className="p-5 flex gap-4">
+                <img src={p.photo} className="h-12 w-12 rounded-full border shadow-sm object-cover" />
+                <div className="flex-1">
+                  <p className="font-bold text-[16px] text-gray-900 leading-none mb-1 uppercase tracking-tighter italic">
+                    {p.author} 
+                    {p.feeling && <span className="font-normal text-gray-500 italic lowercase"> se siente <span className="font-bold text-gray-800 uppercase">{p.feeling}</span></span>}
+                    {p.tag && <span className="font-normal text-gray-500 italic"> con <span className="font-bold text-blue-600 uppercase">{p.tag}</span></span>}
+                  </p>
+                  <p className="text-[11px] text-gray-400 font-black uppercase tracking-tighter">{new Date(p.at).toLocaleString()} {p.location && <span className="ml-2 text-red-500 font-black">● {p.location}</span>}</p>
                 </div>
-                <div className="space-y-2">
-                  {p.comments?.map((c,idx)=>(<div key={idx} className="flex gap-2 items-start"><img src={c.photo} className="h-6 w-6 rounded-full" /><div className="bg-[#3a3b3c] p-2 rounded-xl text-[12px]"><p className="font-bold text-[9px] text-[#D4AF37] uppercase">{c.name}</p><p>{c.text}</p></div></div>))}
-                  <div className="flex gap-2 pt-2"><input type="text" value={commIn[p.id]||''} onChange={e=>setCommIn(old=>({...old, [p.id]:e.target.value}))} placeholder="Comentar..." className="flex-1 bg-white/5 rounded-full px-4 text-xs outline-none border border-white/10 h-8" onKeyDown={e=>e.key==='Enter'&&comment(p.id)} /><button onClick={()=>comment(p.id)} className="text-[#D4AF37]"><i className="fa-solid fa-paper-plane"></i></button></div>
-                </div>
+              </div>
+              {p.text && <p className="px-6 pb-4 text-[17px] leading-relaxed text-gray-800 whitespace-pre-wrap font-medium">{p.text}</p>}
+              {p.img && <img src={p.img} className="w-full border-y border-gray-50 shadow-sm" />}
+              {p.audio && <div className="px-6 py-6 bg-gray-50/50 border-y shadow-inner"><audio src={p.audio} controls className="w-full h-11" /></div>}
+              {p.link && <div className="px-6 pb-6"><MediaDisplay url={p.link} /></div>}
+              
+              <div className="reac-bar">
+                <div onClick={()=>{const rs={...(p.reactions||{})}; if(rs[user.uid]==='amen') delete rs[user.uid]; else rs[user.uid]='amen'; db.collection('artifacts').doc(rootId).collection('public').doc('data').collection('posts').doc(p.id).update({reactions:rs});}} className={`reac-btn ${p.reactions?.[user.uid]==='amen'?'active text-blue-600 font-black':'text-gray-500'}`}><i className="fa-regular fa-thumbs-up text-lg"></i> Amén {Object.values(p.reactions||{}).filter(r=>r==='amen').length || ''}</div>
+                <div onClick={()=>{const rs={...(p.reactions||{})}; if(rs[user.uid]==='bendice') delete rs[user.uid]; else rs[user.uid]='bendice'; db.collection('artifacts').doc(rootId).collection('public').doc('data').collection('posts').doc(p.id).update({reactions:rs});}} className={`reac-btn ${p.reactions?.[user.uid]==='bendice'?'active text-red-500 font-black':'text-gray-500'}`}><i className="fa-regular fa-heart text-lg"></i> Bendice {Object.values(p.reactions||{}).filter(r=>r==='bendice').length || ''}</div>
+              </div>
+              <div className="p-4 bg-gray-50/10 space-y-3 border-t border-gray-100">
+                {p.comments?.map((c, idx) => (<div key={idx} className="flex gap-3 items-start animate-up"><img src={c.authorPhoto} className="h-9 w-9 rounded-full border shadow-sm object-cover" /><div className="bg-white border border-gray-100 p-3 rounded-2xl text-[14px] shadow-sm"><p className="font-bold text-[10px] text-gray-900 mb-1 uppercase tracking-tighter">{c.authorName}</p><p className="text-gray-700 leading-snug">{c.text}</p></div></div>))}
+                <div className="flex gap-3 pt-2"><input type="text" placeholder="Comentar bendición..." className="flex-1 bg-white border border-gray-200 rounded-full px-6 h-11 text-sm outline-none shadow-inner focus:bg-gray-50" onKeyDown={e=>{if(e.key==='Enter'&&e.target.value.trim()){ const t=e.target.value; e.target.value=''; db.collection('artifacts').doc(rootId).collection('public').doc('data').collection('posts').doc(p.id).update({comments:firebase.firestore.FieldValue.arrayUnion({uid:user.uid,authorName:profile.name,authorPhoto:profile.photo,text:t,at:Date.now()})});}}} /><button className="text-blue-600 px-3 active:scale-90"><i className="fa-solid fa-paper-plane text-xl"></i></button></div>
               </div>
             </div>
           ))}
         </div>
       );
-    };
+    }
 
-    // --- APP ---
+    function GroupView({ user, profile }) {
+      const [groups, setGroups] = useState([]); const [showAdd, setShowAdd] = useState(false);
+      const [gName, setGName] = useState(''); const [gDesc, setGDesc] = useState('');
+      const colG = db.collection('artifacts').doc(rootId).collection('public').doc('data').collection('groups');
+      useEffect(() => { const unsub = colG.onSnapshot(s => setGroups(s.docs.map(d=>({id:d.id, ...d.data()})))); return ()=>unsub(); }, []);
+      const saveGroup = async () => { if(!gName) return; await colG.add({ name:gName, desc:gDesc, author:profile.name, at:Date.now(), members: [user.uid] }); setShowAdd(false); setGName(''); setGDesc(''); };
+      return (
+        <div className="space-y-6 pb-24 max-w-[850px] mx-auto animate-in px-4">
+          <div className="card-social p-6 flex justify-between items-center bg-white border-t-4 border-blue-500 shadow-lg">
+            <h2 className="font-black text-2xl text-gray-800 uppercase tracking-tighter italic"><i className="fa-solid fa-users-rectangle mr-3 text-blue-600"></i> Grupos de Prédica</h2>
+            <button onClick={()=>setShowAdd(true)} className="bg-blue-600 text-white px-8 py-3 rounded-2xl font-black text-xs shadow-lg active:scale-95 transition-all uppercase tracking-widest">+ Crear Grupo</button>
+          </div>
+          {showAdd && (
+            <div className="card-social p-8 animate-in bg-white shadow-2xl border-2 border-blue-50">
+              <input type="text" placeholder="Nombre del Grupo Ministerial" value={gName} onChange={e=>setGName(e.target.value)} className="input-pill bg-gray-50 border mb-5 h-14 shadow-inner text-lg font-bold" />
+              <textarea placeholder="Descripción del propósito ministerial..." value={gDesc} onChange={e=>setGDesc(e.target.value)} className="input-pill bg-gray-50 border mb-6 h-32 resize-none shadow-inner text-lg" />
+              <div className="flex gap-4"><button onClick={()=>setShowAdd(false)} className="flex-1 bg-gray-100 py-4.5 rounded-2xl font-black text-gray-500 hover:bg-gray-200 uppercase text-[11px] tracking-widest transition-all">Cancelar</button><button onClick={saveGroup} className="flex-1 bg-blue-600 text-white py-4.5 rounded-2xl font-black shadow-lg hover:bg-blue-700 uppercase text-[11px] tracking-widest transition-all">Confirmar</button></div>
+            </div>
+          )}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
+            {groups.map(g => (
+              <div key={g.id} className="card-social p-7 bg-white border border-gray-200 shadow-sm hover:shadow-2xl transition-all flex flex-col">
+                <h3 className="font-black text-2xl text-blue-600 leading-tight mb-3 italic uppercase tracking-tighter">#{g.name}</h3>
+                <p className="text-gray-600 mt-2 line-clamp-3 leading-relaxed mb-6 h-12 italic font-medium">{g.desc}</p>
+                <div className="mt-auto flex justify-between items-center border-t pt-5"><span className="text-[11px] font-black text-gray-400 uppercase tracking-widest italic leading-none">Líder: {g.author}</span><button className="bg-blue-50 text-blue-600 px-6 py-2.5 rounded-2xl font-black text-[11px] uppercase tracking-widest active:scale-95 hover:bg-blue-100 transition-all border border-blue-100 shadow-sm">Unirse al Grupo</button></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    function StoreView({ user, profile }) {
+      const [items, setItems] = useState([]); const [showAdd, setShowAdd] = useState(false);
+      const [pName, setPName] = useState(''); const [pPrice, setPPrice] = useState(''); const [pImg, setPImg] = useState('');
+      const colS = db.collection('artifacts').doc(rootId).collection('public').doc('data').collection('store');
+      useEffect(() => { const unsub = colS.orderBy('at','desc').onSnapshot(s => setItems(s.docs.map(d=>({id:d.id, ...d.data()})))); return ()=>unsub(); }, []);
+      const saveProduct = async () => { if(!pName || !pImg) return; await colS.add({ uid:user.uid, author:profile.name, name:pName, price:pPrice, img:pImg, at:Date.now() }); setShowAdd(false); setPName(''); setPPrice(''); setPImg(''); };
+      return (
+        <div className="space-y-6 pb-24 max-w-[1050px] mx-auto animate-in px-4">
+          <div className="card-social p-6 flex justify-between items-center bg-white border-t-4 border-green-500 shadow-lg">
+            <h2 className="font-black text-2xl text-gray-800 uppercase tracking-tighter italic"><i className="fa-solid fa-store mr-3 text-green-600"></i> Tienda Ministerial</h2>
+            <button onClick={()=>setShowAdd(true)} className="bg-green-600 text-white px-8 py-3 rounded-2xl font-black text-xs shadow-lg active:scale-95 transition-all uppercase tracking-widest">+ Vender algo</button>
+          </div>
+          {showAdd && (
+            <div className="card-social p-10 animate-in bg-white shadow-2xl border-2 border-green-50">
+              <input type="text" placeholder="¿Qué ofreces a los hermanos?" value={pName} onChange={e=>setPName(e.target.value)} className="input-pill bg-gray-50 border mb-6 h-14 shadow-inner text-lg font-bold" />
+              <input type="text" placeholder="Precio sugerido (Ej: 10.000)" value={pPrice} onChange={e=>setPPrice(e.target.value)} className="input-pill bg-gray-50 border mb-6 h-14 shadow-inner text-lg font-bold" />
+              <label className="bg-blue-50 text-blue-600 px-5 py-6 rounded-2xl cursor-pointer font-black block text-center mb-6 border-2 border-dashed border-blue-200 hover:bg-blue-100 shadow-sm uppercase text-[13px] tracking-widest transition-all">Añadir fotografía del producto<input type="file" className="hidden" accept="image/*" onChange={async e=>{setPImg(await optimizeMedia(e.target.files[0]));}} /></label>
+              {pImg && <img src={pImg} className="h-56 w-56 object-cover rounded-2xl border-4 border-white mb-7 mx-auto shadow-2xl" />}
+              <button onClick={saveProduct} className="w-full bg-green-600 text-white font-black py-5 rounded-2xl shadow-xl active:scale-95 transition-all uppercase text-[15px] tracking-widest h-16">Sellar y Publicar en Tienda</button>
+            </div>
+          )}
+          <div className="store-grid">
+            {items.map(i => (
+              <div key={i.id} className="store-item bg-white animate-in rounded-2xl flex flex-col border border-gray-200 shadow-sm hover:shadow-2xl transition-all">
+                <img src={i.img} className="h-56 w-full object-cover rounded-t-2xl" />
+                <div className="p-5 flex-1 flex flex-col bg-white">
+                  <p className="text-green-700 font-black text-2xl mb-1 leading-none italic font-serif">${i.price}</p>
+                  <h4 className="font-bold text-gray-800 truncate text-[16px] mb-3 leading-tight uppercase tracking-tighter">{i.name}</h4>
+                  <p className="text-[11px] text-blue-600 font-black mt-2 uppercase tracking-tighter border-t pt-4 italic leading-none opacity-70">De: {i.author}</p>
+                  <button onClick={()=>window.open(`https://api.whatsapp.com/send?text=Bendiciones hermano ${i.author}, me interesa tu producto en Davar: ${i.name}`,'_blank')} className="w-full mt-auto bg-gray-100 py-3 rounded-xl font-black text-[11px] uppercase tracking-widest hover:bg-gray-200 transition-all border border-gray-100 mt-5 shadow-sm active:scale-90">WhatsApp</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
     function App() {
       const [user, setUser] = useState(null); const [profile, setProfile] = useState(null);
       const [isAuth, setIsAuth] = useState(sessionStorage.getItem('davar_auth') === 'true');
       const [tab, setTab] = useState('feed'); const [code, setCode] = useState('');
       const [isUnlocked, setUnlocked] = useState(sessionStorage.getItem('davar_unlocked') === 'true');
-      const [pinIn, setPinIn] = useState(''); const [isBroad, setIsBroad] = useState(false); const [liveId, setLiveId] = useState(null);
-      const [editP, setEditP] = useState(false); const [newName, setNewName] = useState(''); const [newPin, setNewPin] = useState('');
+      const [pinIn, setPinIn] = useState(''); const [isBroadcasting, setIsBroadcasting] = useState(false); const [liveId, setLiveId] = useState(null);
+      const [editM, setEditM] = useState(false); const [newName, setNewName] = useState(''); const [newPin, setNewPin] = useState('');
 
       useEffect(() => {
-        const u = auth.onAuthStateChanged(async (cur) => {
+        const uS = auth.onAuthStateChanged(async (cur) => {
           if (cur) {
-            setUser(cur); const doc = await db.collection('artifacts').doc(rootId).collection('public').doc('data').collection('profiles').doc(cur.uid).get();
-            if(doc.exists) { setProfile(doc.data()); setIsAuth(true); setNewName(doc.data().name); setNewPin(doc.data().pin); }
-          } else { try { await auth.signInAnonymously(); } catch(e){} }
+            setUser(cur); const dP = await db.collection('artifacts').doc(rootId).collection('public').doc('data').collection('profiles').doc(cur.uid).get();
+            if(dP.exists) { const data = dP.data(); setProfile(data); setIsAuth(true); setNewName(data.name); setNewPin(data.pin); }
+          } else { auth.signInAnonymously().catch(()=>{}); }
         });
-        return () => u();
+        return () => uS();
       }, []);
 
-      const goHome = () => { setTab('feed'); setLiveId(null); setIsBroad(false); setEditP(false); };
-      const logIn = (e) => { e.preventDefault(); if(code==="davar2026"||code==="guia2026") { setIsAuth(true); sessionStorage.setItem('davar_auth','true'); } else alert("Clave Incorrecta"); };
-      const unlock = (e) => { e.preventDefault(); if(pinIn===profile.pin) { setUnlocked(true); sessionStorage.setItem('davar_unlocked','true'); } else alert("PIN Incorrecto"); };
-      const reg = async (n, p) => {
-        const prof = {uid:user.uid, name:n, pin:p, photo:LOGO_URL, cover:DEFAULT_COVER, at:Date.now()};
-        await db.collection('artifacts').doc(rootId).collection('public').doc('data').collection('profiles').doc(user.uid).set(prof);
-        setProfile(prof); setUnlocked(true); sessionStorage.setItem('davar_unlocked','true');
-      };
-      const updateProf = async () => {
-        const upd = { name:newName, pin:newPin }; await db.collection('artifacts').doc(rootId).collection('public').doc('data').collection('profiles').doc(user.uid).update(upd);
-        setProfile(prev => ({...prev, ...upd})); setEditP(false);
-      };
-      const media = async (f) => {
-        const i = document.createElement('input'); i.type='file'; i.accept='image/*';
-        i.onchange = async (e) => { const r = await compress(e.target.files[0]); await db.collection('artifacts').doc(rootId).collection('public').doc('data').collection('profiles').doc(user.uid).update({[f]:r}); setProfile(p=>({...p, [f]:r})); };
-        i.click();
+      const resetHome = () => { 
+        setTab('feed'); setLiveId(null); setIsBroadcasting(false); setEditM(false); 
+        const scroller = document.getElementById('main-scroller');
+        if(scroller) scroller.scrollTo({top:0, behavior:'smooth'});
       };
 
-      if(!user) return <div className="h-screen bg-black flex items-center justify-center animate-pulse text-[#D4AF37] font-black italic">Davar...</div>;
-      if(!isAuth) return ( <div className="h-screen flex items-center justify-center p-6 bg-[#0f0f0f]"><div className="card-fb p-10 w-full max-w-md text-center border-t-4 border-[#D4AF37] animate-up shadow-2xl"><img src={LOGO_URL} className="w-20 h-20 mx-auto mb-6 rounded-full border-2 border-[#D4AF37]" /><h2 className="text-[#D4AF37] font-black italic mb-6">Comunidad Davar</h2><form onSubmit={logIn} className="space-y-4"><input type="password" placeholder="Clave Global" value={code} onChange={e=>setCode(e.target.value)} className="w-full p-4 rounded-xl bg-[#3a3b3c] text-white outline-none" required /><button type="submit" className="w-full bg-[#D4AF37] text-black font-black py-4 rounded-xl shadow-lg active:scale-95">Entrar</button></form></div></div> );
-      if(!profile) return ( <div className="h-screen flex items-center justify-center p-6 bg-[#0f0f0f]"><div className="card-fb p-8 w-full max-w-md animate-up shadow-2xl"><h3 className="text-[#D4AF37] font-black text-center mb-6">Registro Ministerial</h3><button onClick={()=>{const n=prompt("Nombre:"); const p=prompt("Crea tu PIN Personal:"); if(n && p) reg(n,p)}} className="w-full bg-[#D4AF37] text-black font-black py-4 rounded-xl">Registrarse en la Familia</button></div></div> );
-      if(!isUnlocked) return ( <div className="h-screen flex items-center justify-center p-6 bg-[#0f0f0f]"><div className="card-fb p-10 w-full max-w-md text-center border-t-4 border-[#D4AF37] animate-up shadow-2xl"><img src={profile.photo} className="w-24 h-24 mx-auto mb-4 rounded-full border-4 border-[#D4AF37] object-cover" /><h2 className="text-white font-black mb-1 uppercase">{profile.name}</h2><p className="text-gray-500 text-[10px] uppercase font-black mb-8 italic">Ingrese PIN Ministerial</p><form onSubmit={unlock} className="space-y-6"><input type="password" placeholder="PIN" value={pinIn} onChange={e=>setPinIn(e.target.value)} className="w-full p-4 rounded-xl bg-[#3a3b3c] text-white outline-none text-center text-3xl font-black tracking-[0.5em]" required autoFocus /><button type="submit" className="w-full bg-[#D4AF37] text-black font-black py-4 rounded-xl active:scale-95">Abrir Aposento</button></form></div></div> );
+      if(!user) return <div className="h-screen bg-white flex flex-col items-center justify-center"><img src={LOGO_URL} className="w-24 h-24 rounded-full border shadow animate-pulse mb-6" /><p className="text-blue-600 font-black uppercase tracking-widest italic animate-bounce text-xl tracking-tighter">Comunidad Davar</p></div>;
+      if(!isAuth) return ( <div className="h-screen flex items-center justify-center p-6 bg-[#F0F2F5]"><div className="card-social p-12 w-full max-w-md text-center border-t-4 border-blue-600 animate-in bg-white shadow-2xl"><img src={LOGO_URL} className="w-28 h-28 mx-auto mb-8 rounded-full border-4 border-blue-50 shadow-lg" /><h2 className="text-gray-800 font-black text-2xl mb-8 uppercase tracking-tighter leading-none italic">Comunidad Davar</h2><form onSubmit={(e)=>{e.preventDefault(); if(code==="davar2026"||code==="guia2026") { setIsAuth(true); sessionStorage.setItem('davar_auth','true'); } else alert("Llave ministerial incorrecta.");}} className="space-y-6"><input type="password" placeholder="Clave Global Ministerial" className="input-social bg-white border border-gray-300 shadow-inner h-16 text-center text-xl font-black tracking-widest" value={code} onChange={e=>setCode(e.target.value)} required /><button type="submit" className="w-full bg-blue-600 text-white font-black py-4.5 rounded-2xl shadow-xl active:scale-95 transition-all text-sm uppercase tracking-widest h-14">Abrir Puertas</button></form></div></div> );
+      if(!profile) return ( <div className="h-screen flex items-center justify-center p-6 bg-[#F0F2F5] overflow-y-auto"><div className="card-social p-10 w-full max-w-md text-center shadow-xl animate-in bg-white border-t-4 border-blue-600 my-12"><img src={LOGO_URL} className="w-24 h-24 mx-auto mb-8 rounded-full border shadow-md" /><h3 className="mb-8 font-black text-gray-700 uppercase tracking-widest italic leading-tight text-xl">Unirse a la Red Davar</h3><form onSubmit={async(e)=>{e.preventDefault(); if(!newName.trim()||!newPin.trim())return; const pr={uid:user.uid,name:newName.trim(),pin:newPin.trim(),photo:LOGO_URL,cover:DEFAULT_COVER,at:Date.now()}; await db.collection('artifacts').doc(rootId).collection('public').doc('data').collection('profiles').doc(user.uid).set(pr); setProfile(pr); setUnlocked(true); sessionStorage.setItem('davar_unlocked','true');}} className="space-y-7 text-left animate-in"><div><label className="text-[12px] font-black uppercase text-gray-400 ml-2 tracking-widest">Nombre Completo</label><input type="text" value={newName} onChange={e=>setNewName(e.target.value)} className="input-social bg-gray-50 border shadow-inner mt-2 h-14 text-lg font-bold" required /></div><div><label className="text-[12px] font-black uppercase text-gray-400 ml-2 tracking-widest">PIN de acceso (números)</label><input type="password" value={newPin} onChange={e=>setNewPin(e.target.value)} className="input-social bg-gray-50 border text-center text-xl font-black tracking-[0.5em] shadow-inner mt-2 h-14" required /></div><button type="submit" className="w-full bg-blue-600 text-white font-black py-5 rounded-2xl shadow-xl active:scale-95 uppercase text-[13px] tracking-widest transition-all">Sellar Perfil y Entrar</button></form></div></div> );
+      if(!isUnlocked) return ( <div className="h-screen flex items-center justify-center p-6 bg-[#F0F2F5]"><div className="card-social p-12 w-full max-w-md text-center border-t-4 border-blue-600 animate-fast shadow-2xl bg-white"><img src={profile.photo} className="w-36 h-36 mx-auto mb-8 rounded-full border-4 border-blue-50 object-cover shadow-2xl" /><h2 className="font-black text-gray-800 uppercase tracking-widest italic leading-none mb-3 text-2xl">{profile.name}</h2><p className="text-gray-500 text-[12px] font-black uppercase mb-12 italic tracking-widest opacity-60">Confirme su PIN Secreto</p><form onSubmit={(e)=>{e.preventDefault(); if(pinIn===profile.pin) { setUnlocked(true); sessionStorage.setItem('davar_unlocked','true'); } else alert("PIN Incorrecto");}} className="space-y-7"><input type="password" placeholder="PIN" className="input-social bg-white border text-center text-4xl font-black tracking-[0.6em] outline-none shadow-inner h-20" value={pinIn} onChange={e=>setPinIn(e.target.value)} required autoFocus /><button type="submit" className="w-full bg-blue-600 text-white font-black py-5 rounded-2xl shadow-xl active:scale-95 transition-all uppercase tracking-widest h-16 text-[15px]">Abrir Puerta</button></form></div></div> );
 
       return (
-        <div className="h-screen flex flex-col md:flex-row overflow-hidden bg-[#0f0f0f]">
-          <aside className="hidden md:flex w-[260px] flex-col bg-[#1c1c1d] border-r border-white/5 p-6 shadow-2xl">
-            <button onClick={goHome} className="flex items-center gap-3 mb-10 group"><img src={LOGO_URL} className="h-9 w-9 rounded-full border border-[#D4AF37] group-hover:rotate-12 transition-all" /><span className="font-black text-[#D4AF37] text-sm uppercase">Davar Home</span></button>
-            <nav className="flex-1 space-y-1">
-              <SidebarLink icon="fa-house" text="Muro" active={tab==='feed'} onClick={goHome} />
-              <SidebarLink icon="fa-comments" text="Chat" active={tab==='chat'} onClick={()=>setTab('chat')} />
-              <SidebarLink icon="fa-sparkles" text="Sabiduría" active={tab==='wisdom'} onClick={()=>setTab('wisdom')} />
-              <SidebarLink icon="fa-user-gear" text="Perfil" active={tab==='profile'} onClick={()=>setTab('profile')} />
-            </nav>
-            <button onClick={()=>{sessionStorage.clear(); window.location.reload();}} className="mt-8 flex items-center gap-4 p-4 text-red-500 font-black uppercase text-[10px] hover:bg-red-500/10 rounded-xl transition-all"><i className="fa-solid fa-power-off"></i> Salir</button>
-          </aside>
-          
-          <main className="flex-1 flex flex-col h-full relative overflow-hidden">
-            <header className="md:hidden bg-[#242526] p-4 border-b border-[#3e4042] flex items-center justify-between sticky top-0 z-50 shadow-lg"><button onClick={goHome} className="text-[#D4AF37]"><i className="fa-solid fa-house text-lg"></i></button><div className="font-black text-[#D4AF37] uppercase text-[11px] italic">Comunidad Davar</div><img src={profile.photo} onClick={()=>setTab('profile')} className="h-9 w-9 rounded-full border border-[#D4AF37] object-cover" /></header>
-            <div className="flex-1 overflow-y-auto p-3 md:p-8 flex justify-center custom-scrollbar">
-              <div className={`w-full ${(tab==='chat' || tab==='wisdom') ? 'max-w-[1100px]' : 'max-w-[650px]'} transition-all`}>
-                {tab==='feed' && <Wall user={user} profile={profile} onStartLive={()=>setIsBroad(true)} onJoinLive={id=>setLiveId(id)} />}
-                {tab==='chat' && (
-                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-[80vh] animate-up">
-                    <div className="hidden md:block md:col-span-7 overflow-y-auto custom-scrollbar h-full pr-4"><Wall user={user} profile={profile} onStartLive={()=>setIsBroad(true)} onJoinLive={id=>setLiveId(id)} /></div>
-                    <div className="col-span-1 md:col-span-5 h-full"><ChatGlobal profile={profile} /></div>
-                  </div>
-                )}
+        <div className="h-screen flex flex-col overflow-hidden bg-[#F0F2F5]">
+          <header className="header-fb">
+            <div onClick={resetHome} className="flex items-center gap-3 cursor-pointer hover:scale-110 transition-transform">
+               <img src={LOGO_URL} className="h-11 w-11 rounded-full border border-blue-100 shadow-md" />
+               <span className="hidden md:block font-black text-blue-600 uppercase tracking-tighter italic text-lg">Comunidad Davar</span>
+            </div>
+            <div className="nav-container">
+              <div onClick={resetHome} className={`nav-icon ${tab==='feed'?'active':''}`} title="Inicio"><i className="fa-solid fa-house"></i></div>
+              <div onClick={()=>setTab('chat')} className={`nav-icon ${tab==='chat'?'active':''}`} title="Chat"><i className="fa-solid fa-message"></i></div>
+              <div onClick={()=>setTab('wisdom')} className={`nav-icon ${tab==='wisdom'?'active':''}`} title="Sabiduría"><i className="fa-solid fa-sparkles"></i></div>
+              <div onClick={()=>setTab('groups')} className={`nav-icon ${tab==='groups'?'active':''}`} title="Grupos"><i className="fa-solid fa-users-rectangle"></i></div>
+              <div onClick={()=>setTab('store')} className={`nav-icon ${tab==='store'?'active':''}`} title="Tienda"><i className="fa-solid fa-store"></i></div>
+              <div onClick={()=>setTab('profile')} className={`nav-icon ${tab==='profile'?'active':''}`} title="Perfil"><i className="fa-solid fa-circle-user"></i></div>
+            </div>
+            <div className="flex items-center gap-3">
+              <div onClick={()=>{sessionStorage.clear(); window.location.reload();}} className="btn-circle-action text-red-600 bg-red-50 hover:bg-red-100 border-none w-11 h-11 transition-all active:scale-90 shadow-sm" title="Desconectar"><i className="fa-solid fa-power-off text-lg"></i></div>
+            </div>
+          </header>
+
+          <main id="main-scroller" className="flex-1 overflow-y-auto custom-scrollbar pt-[85px] pb-12 px-3 md:px-6 scroll-smooth">
+             <div className={`w-full ${(tab==='chat' || tab==='wisdom' || tab==='store' || tab==='groups') ? 'max-w-[1200px]' : 'max-w-[650px]'} mx-auto transition-all`}>
+                {tab==='feed' && <WallView user={user} profile={profile} onStartLive={()=>setIsBroadcasting(true)} onJoinLive={id=>setLiveId(id)} />}
+                {tab==='chat' && <div className="h-[84vh]"><ChatPanel profile={profile} /></div>}
                 {tab==='wisdom' && <WisdomPanel />}
+                {tab==='groups' && <GroupView user={user} profile={profile} />}
+                {tab==='store' && <StoreView user={user} profile={profile} />}
                 {tab==='profile' && (
-                  <div className="card-fb overflow-hidden animate-up shadow-2xl border-t-4 border-[#D4AF37]/50">
-                    <div className="relative h-40"><img src={profile.cover} className="profile-cover h-full w-full" /><button onClick={()=>media('cover')} className="absolute top-4 right-4 bg-black/40 p-2 rounded-full text-white shadow-lg"><i className="fa-solid fa-camera"></i></button></div>
-                    <div className="p-8 pt-0 text-center">
-                      <div className="profile-avatar-pos"><img src={profile.photo} className="w-28 h-28 rounded-full border-4 border-[#242526] object-cover shadow-2xl" /><button onClick={()=>media('photo')} className="absolute bottom-1 right-1 bg-[#D4AF37] p-2 rounded-full text-black shadow-lg"><i className="fa-solid fa-camera text-xs"></i></button></div>
-                      {!editP ? (
-                        <>
-                          <h2 className="font-black text-xl mt-4 uppercase italic">{profile.name}</h2>
-                          <p className="text-[10px] text-gray-500 uppercase mt-1 mb-8 tracking-widest">Siervo del Ministerio</p>
-                          <div className="flex flex-col gap-3"><button onClick={()=>setEditP(true)} className="w-full bg-white/5 border border-white/10 text-white py-3 rounded-xl font-black uppercase text-[10px] tracking-widest hover:bg-white/10 transition-all">Editar Perfil</button><button onClick={goHome} className="w-full bg-[#D4AF37] text-black py-4 rounded-xl font-black uppercase shadow-lg active:scale-95 transition-all">Regresar al Muro</button></div>
-                        </>
+                  <div className="card-fb overflow-hidden animate-in shadow-2xl max-w-[950px] mx-auto pb-16 border-t-4 border-blue-600 bg-white shadow-xl">
+                    <div className="relative h-64 bg-gray-200 shadow-inner"><img src={profile.cover} className="profile-banner h-full w-full" /><div onClick={async()=> {
+                      const i = document.createElement('input'); i.type='file'; i.accept='image/*';
+                      i.onchange = async (e) => { const r = await optimizeMedia(e.target.files[0]); await db.collection('artifacts').doc(rootId).collection('public').doc('data').collection('profiles').doc(user.uid).update({cover:r}); setProfile(p=>({...p, cover:r})); };
+                      i.click();
+                    }} className="absolute bottom-6 right-6 bg-white/70 backdrop-blur-md p-4 rounded-2xl text-gray-800 shadow cursor-pointer border border-white/40 hover:bg-white transition-all shadow-xl active:scale-95"><i className="fa-solid fa-camera mr-2"></i><span className="text-[13px] font-black uppercase tracking-widest">Nueva Portada</span></div></div>
+                    <div className="p-10 pt-0 text-center flex flex-col items-center">
+                      <div className="avatar-lg shadow-2xl"><img src={profile.photo} className="w-56 h-56 rounded-full object-cover shadow-2xl border-4 border-white" /><div onClick={async()=> {
+                        const i = document.createElement('input'); i.type='file'; i.accept='image/*';
+                        i.onchange = async (e) => { const r = await optimizeMedia(e.target.files[0]); await db.collection('artifacts').doc(rootId).collection('public').doc('data').collection('profiles').doc(user.uid).update({photo:r}); setProfile(p=>({...p, photo:r})); };
+                        i.click();
+                      }} className="absolute bottom-5 right-5 bg-[#E4E6E9] p-5 rounded-full hover:bg-[#D8DADF] cursor-pointer shadow-xl border-4 border-white transition-transform active:scale-90"><i className="fa-solid fa-camera text-gray-700 text-2xl"></i></div></div>
+                      {!editM ? (
+                        <><h2 className="font-black text-4xl mt-9 text-gray-900 tracking-tight italic uppercase italic leading-none">{profile.name}</h2><p className="text-[18px] text-gray-500 mt-2 font-black tracking-widest uppercase italic border-b-2 pb-8 w-80 opacity-50 italic leading-none">Siervo Davar</p><div className="flex gap-5 mt-14 w-full max-w-[550px]"><button onClick={()=>setEditM(true)} className="flex-1 bg-[#E4E6E9] text-gray-900 font-black py-5 rounded-2xl transition-all hover:bg-[#D8DADF] shadow-sm italic uppercase text-[12px] tracking-widest">Editar Perfil</button><button onClick={resetHome} className="flex-1 bg-[#1877f2] text-white font-black py-5 rounded-2xl shadow-xl active:scale-95 transition-all italic uppercase text-[12px] tracking-widest">Ir al Muro</button></div></>
                       ) : (
-                        <div className="mt-6 space-y-4 text-left">
-                          <div><label className="text-[9px] font-black uppercase text-gray-500 ml-2">Nombre</label><input type="text" value={newName} onChange={e=>setNewName(e.target.value)} className="w-full bg-[#3a3b3c] p-3 rounded-lg outline-none" /></div>
-                          <div><label className="text-[9px] font-black uppercase text-gray-500 ml-2">PIN Secreto</label><input type="text" value={newPin} onChange={e=>setNewPin(e.target.value)} className="w-full bg-[#3a3b3c] p-3 rounded-lg outline-none" /></div>
-                          <div className="flex gap-2 pt-4"><button onClick={()=>setEditP(false)} className="flex-1 bg-white/5 py-3 rounded-lg text-xs font-bold">Cancelar</button><button onClick={updateProf} className="flex-1 bg-[#D4AF37] text-black py-3 rounded-lg text-xs font-black uppercase">Guardar Cambios</button></div>
+                        <div className="mt-12 space-y-8 text-left w-full max-w-[500px] animate-in">
+                          <div><label className="text-[14px] font-black uppercase text-gray-400 ml-2 tracking-widest">Nuevo Nombre Ministerial</label><input type="text" value={newName} onChange={e=>setNewName(e.target.value)} className="input-social bg-white border border-gray-300 h-16 mt-3 shadow-sm text-xl font-bold" /></div>
+                          <div><label className="text-[14px] font-black uppercase text-gray-400 ml-2 tracking-widest">Nuevo PIN Secreto</label><input type="password" value={newPin} onChange={e=>setNewPin(e.target.value)} className="input-social bg-white border border-gray-300 h-16 mt-3 text-center font-black tracking-[0.7em] shadow-sm text-xl" /></div>
+                          <div className="flex gap-5 pt-10"><button onClick={()=>setEditM(false)} className="flex-1 bg-gray-100 py-6 rounded-2xl font-black text-gray-600 uppercase text-[13px] tracking-widest shadow-sm active:scale-95 transition-all">Cancelar</button><button onClick={async()=>{await db.collection('artifacts').doc(rootId).collection('public').doc('data').collection('profiles').doc(user.uid).update({name:newName,pin:newPin});setProfile(p=>({...p,name:newName,pin:newPin}));setEditM(false);}} className="flex-1 bg-[#1877f2] text-white py-6 rounded-2xl font-black shadow-xl active:scale-95 transition-all uppercase text-[13px] tracking-widest">Guardar Cambios</button></div>
                         </div>
                       )}
                     </div>
                   </div>
                 )}
-              </div>
-            </div>
-            <nav className="md:hidden fixed bottom-0 w-full bg-[#1c1c1d] border-t border-[#3e4042] flex justify-around items-center h-[65px] z-50 px-2 shadow-2xl">
-              <button onClick={goHome} className={`flex-1 flex flex-col items-center ${tab==='feed'?'text-[#D4AF37]':'text-gray-500'}`}><i className="fa-solid fa-house text-lg"></i></button>
-              <button onClick={()=>setTab('chat')} className={`flex-1 flex flex-col items-center ${tab==='chat'?'text-[#D4AF37]':'text-gray-500'}`}><i className="fa-solid fa-comments text-lg"></i></button>
-              <button onClick={()=>setTab('wisdom')} className={`flex-1 flex flex-col items-center ${tab==='wisdom'?'text-[#D4AF37]':'text-gray-500'}`}><i className="fa-solid fa-sparkles text-lg"></i></button>
-              <button onClick={()=>setTab('profile')} className={`flex-1 flex flex-col items-center ${tab==='profile'?'text-[#D4AF37]':'text-gray-500'}`}><i className="fa-solid fa-user text-lg"></i></button>
-            </nav>
+             </div>
           </main>
-          {isBroad && <LiveWindow profile={profile} bId={user.uid} isB={true} onClose={()=>setIsBroad(false)} onPub={()=>{}} />}
-          {liveId && <LiveWindow profile={profile} bId={liveId} isB={false} onClose={()=>setLiveId(null)} />}
+          
+          {isBroadcasting && <LiveOverlay profile={profile} bId={user.uid} isB={true} onClose={()=>setIsBroadcasting(false)} onPub={()=>{resetHome();}} />}
+          {liveId && <LiveOverlay profile={profile} bId={liveId} isB={false} onClose={()=>setLiveId(null)} />}
         </div>
       );
     }
 
-    function SidebarLink({ icon, text, active, onClick }) {
-      return (
-        <button onClick={onClick} className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all ${active ? 'nav-active shadow-lg' : 'text-gray-500 hover:bg-white/5 hover:text-gray-300'}`}>
-          <i className={`fa-solid ${icon} w-5 text-center`}></i>
-          <span className="font-black uppercase text-[10px] tracking-widest">{text}</span>
-        </button>
-      );
-    }
-
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<App />);
+    const containerRoot = document.getElementById('root');
+    const rootReact = ReactDOM.createRoot(containerRoot);
+    rootReact.render(<App />);
   </script>
 </body>
 </html>
